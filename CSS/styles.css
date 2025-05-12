@@ -62,7 +62,9 @@ button:focus {outline: none;}
 ____________________________________  */
 .container {padding: 16px;}
 
-.btn {}
+.btn {
+  padding: 16px;
+}
 
 .dis-n {display: none;}
 
@@ -75,16 +77,67 @@ ____________________________________  */
 .header {
   position: fixed; 
   top: 0; 
+  z-index: 9999;
   width: 100%;
+  background-color: hsla(0, 0%, 0%, 0.1);
+  backdrop-filter: blur(10px);
+  mix-blend-mode: hard-light;
+}
+
+/* --- */
+.active-state {
+  background-color: var(--white);
+  backdrop-filter: unset;
+  mix-blend-mode: unset;
   border-bottom: 1px solid var(--m-gray);
 }
+
+.active-state .icons i {
+  color: var(--dark);
+}
+
+.active-state .icons .line {
+  background-color: var(--dark);
+}
+
+.scroller {
+  background-color: var(--dark);
+  height: 36px;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.announcement__bar {
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  flex-shrink: none;
+  gap: 40px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  animation: scroll 20s linear infinite;
+  will-change: transform;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 20px));
+  }
+}
+
+
 
 .nav__menu {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--white);
 }
 
 .logo img{
@@ -108,14 +161,14 @@ ____________________________________  */
   cursor: pointer;
 }
 
-.icons div i { font-size: 2rem; }
+.icons div i { font-size: 2rem; color: var(--white);}
 
 .icons .cart__items {
   position: absolute;
   bottom: 5px;
   right: 2px;
   font-size: 1.2rem;
-  background-color: var(--dark);
+  background-color: var(--orange);
   color: var(--white);
   display: grid;
   place-items: center;
@@ -140,7 +193,7 @@ ____________________________________  */
 .line {
   height: 2px;
   width: 20px;
-  background-color: var(--dark);
+  background-color: var(--white);
   transition: var(--transition);
 }
 
@@ -159,8 +212,8 @@ ____________________________________  */
 /* nav list */
 .nav__list {
   position: absolute;
-  z-index: 999999;
-  top: 74px;
+  z-index: 999;
+  top: 73px;
   left: 0;
   padding: 24px 16px;
   width: 100%;
@@ -197,13 +250,19 @@ ____________________________________  */
     border: none;
     font-size: 1.8rem;
     opacity: 1;
+    background-color: transparent;
+    color: var(--white);
   }
 
   .logo {padding-right: 110px;}
+
+  .announcement__bar {font-size: 1.4rem;}
 }
 
 @media screen and (min-width: 1200px) {
   .nav__menu {width: 75%; margin: 0 auto;}
+  
+  .announcement__bar {font-size: 1.6rem;}
 } 
 
 /* ***
