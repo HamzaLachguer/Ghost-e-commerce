@@ -100,7 +100,7 @@ ____________________________________  */
   cursor: pointer;
 }
 
-.icons menu__icon {
+.icons .menu__icon {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -136,7 +136,7 @@ ____________________________________  */
 
 .line {
   height: 2px;
-  width: 22px;
+  width: 20px;
   background-color: var(--dark);
   transition: var(--transition);
 }
@@ -148,7 +148,7 @@ ____________________________________  */
 }
 .open .two {
   position: absolute;
-  transform: rotate(-225deg);
+  transform: rotate(-45deg);
 }
 
 
