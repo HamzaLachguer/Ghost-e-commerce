@@ -52,6 +52,8 @@ button {
   font-family: inherit;
 }
 
+button:focus {outline: none;}
+
 
 
 
@@ -74,6 +76,7 @@ ____________________________________  */
   position: fixed; 
   top: 0; 
   width: 100%;
+  border-bottom: 1px solid var(--m-gray);
 }
 
 .nav__menu {
@@ -81,7 +84,6 @@ ____________________________________  */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--m-gray);
   background-color: var(--white);
 }
 
@@ -96,17 +98,6 @@ ____________________________________  */
 }
 
 .icons> div {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  width: 40px;
-  cursor: pointer;
-}
-
-.icons .menu__icon {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -134,10 +125,16 @@ ____________________________________  */
 }
 
 /* burger menu */
-.menu__icon {
+.icons .menu__icon {
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 6px;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
 }
 
 .line {
@@ -188,7 +185,7 @@ ____________________________________  */
 
 @media screen and (min-width: 810px) {
   .container {padding: 16px 40px;}
-  .menu__icon {display: none;}
+  .icons .menu__icon {display: none;}
 
   .nav__hidden {
     position: static;
@@ -199,12 +196,15 @@ ____________________________________  */
     padding: 0;
     border: none;
     font-size: 1.8rem;
-    opacity: unset;
+    opacity: 1;
   }
 
   .logo {padding-right: 110px;}
 }
 
+@media screen and (min-width: 1200px) {
+  .nav__menu {width: 75%; margin: 0 auto;}
+} 
 
 /* ***
   -- FOOTER --
