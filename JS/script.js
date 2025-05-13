@@ -52,3 +52,8 @@ menuBtn.setAttribute("aria-expanded", "false");
 menuBtn.setAttribute("aria-controls", "nav-list");
 navList.setAttribute("aria-hidden", "true");
 navList.id = "nav-list";
+
+
+/* 
+  REMOVING THE"ACTIVE-STATE" FROM THE HEADER
+*/

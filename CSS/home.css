@@ -28,6 +28,7 @@ ____________________________________  */
   -- HERO --
 ____________________________________  */
 .hero {
+  display: flex;
   position: relative;
 }
 
@@ -48,6 +49,9 @@ ____________________________________  */
   position: absolute;
   bottom: 0;
   padding: 120px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .text__container h1 {
@@ -55,4 +59,45 @@ ____________________________________  */
   color: var(--l-gray);
   letter-spacing: -.1rem;
   line-height: 5rem;
+}
+
+.text__container div {
+  display: flex;
+  gap: 20px;
+}
+
+.text__container p {
+  color: var(--l-gray);
+  line-height: 1.6rem;
+  letter-spacing: -.1rem;
+}
+
+
+@media screen and (min-width: 810px) {
+  .text__container {
+    gap: 40px;
+    padding: 120px 54px 90px;
+  }
+  
+  .text__container h1 {
+    font-size: 8.4rem;
+    line-height: 8rem;
+  }
+
+  .text__container div {gap: 40px;}
+
+  .text__container div p {
+    font-size: 2rem;
+    line-height: 2rem;
+    max-width: 432px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .text__container {
+    width: 75%; 
+    left: calc((100% - 75%) / 2);
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }
