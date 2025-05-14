@@ -41,7 +41,7 @@ html {
   font-size: 10px;
 }
 
-body {font-size: 1.6rem;}
+body {font-size: 1.6rem; background-color: var(--l-gray);}
 
 li {list-style: none;}
 a {color: inherit; text-decoration: none;}
@@ -70,6 +70,13 @@ ____________________________________  */
   line-height: 1.5rem;
   height: fit-content;
   white-space: nowrap;
+  border: 1px solid var(--m-gray);
+}
+
+.btn-active {
+  background-color: var(--dark);
+  color: var(--white);
+  border: 1px solid var(--dark);
 }
 
 .bg-b {background-color: var(--dark);}
@@ -93,12 +100,11 @@ ____________________________________  */
   width: 100%;
   background-color: hsla(0, 0%, 0%, 0.1);
   backdrop-filter: blur(10px);
-  mix-blend-mode: hard-light;
 }
 
 /* --- */
 .active-state {
-  background-color: var(--white);
+  background-color: var(--l-gray);
   backdrop-filter: unset;
   mix-blend-mode: unset;
   border-bottom: 1px solid var(--m-gray);
@@ -255,7 +261,7 @@ ____________________________________  */
   font-size: 2.4rem;
   font-weight: var(--bold);
   letter-spacing: -.1rem;
-  background-color: var(--white);
+  background-color: var(--l-gray);
   border-bottom: 1px solid var(--m-gray);
   transition: var(--transition);
 }
