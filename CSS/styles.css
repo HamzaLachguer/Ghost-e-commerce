@@ -41,7 +41,11 @@ html {
   font-size: 10px;
 }
 
-body {font-size: 1.6rem; background-color: var(--l-gray);}
+body {
+  font-size: 1.6rem;
+  letter-spacing: -.1rem;
+  background-color: var(--l-gray);
+}
 
 li {list-style: none;}
 a {color: inherit; text-decoration: none;}
@@ -82,6 +86,7 @@ ____________________________________  */
 .bg-b {background-color: var(--dark);}
 .dis-n {display: none;}
 
+.act {color: #d14812;}
 @media screen and (min-width: 810px) {
   .btn {
     font-size: 2rem;
@@ -156,7 +161,7 @@ ____________________________________  */
   gap: 40px;
   font-size: 1.2rem;
   text-transform: uppercase;
-  animation: scroll 30s linear infinite;
+  animation: scroll 10s linear infinite;
   will-change: transform;
 }
 
