@@ -288,7 +288,7 @@ ____________________________________  */
     font-size: 1.8rem;
     opacity: 1;
     background-color: transparent;
-    color: var(--white);
+    color: var(--dark);
   }
 
   .logo {padding-right: 110px;}
@@ -306,3 +306,142 @@ ____________________________________  */
 /* ***
   -- FOOTER --
 ____________________________________  */
+.footer {
+  padding: 160px 16px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 72px;
+}
+
+.footer >div:nth-of-type(1) {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 72px;
+}
+
+.footer .links {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+
+.links h3 {
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  letter-spacing: -.1rem;
+}
+
+.links nav {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 1.4rem;
+  line-height: 1.4erm;
+  font-weight: 400;
+  letter-spacing: -.1rem;
+  color: var(--d-gray);
+}
+
+.links form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.links form div {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.links input[type="email"] {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: var(--white);
+  border: none;
+}
+
+.links input[type="submit"] {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: var(--dark);
+  border: none;
+  color: var(--white);
+}
+
+.links input[type="email"]:focus {
+  outline: none;
+}
+
+.bottom {
+  padding: 16px 0;
+  font-size: 1.4rem;
+  color: var(--d-gray);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--m-gray);
+}
+
+.bottom ul {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.word__mark {
+  
+}
+
+@media screen and (min-width: 810px) {
+  .footer {
+  padding: 160px 54px 0;
+  }
+
+  .footer .links {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .links ul {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+  }
+
+  .links nav h3 {font-size: 2rem;}
+
+  .links form h3 {font-size: 2rem;}
+
+  .bottom {font-size: 1.6rem;}
+  .bottom ul {font-size: 2rem;}
+}
+
+@media screen and (min-width: 1200px) {
+  .footer {
+    width: 75%;
+    margin: 0 auto;
+  }
+  .footer >div:nth-of-type(1) {
+    grid-template-columns: 1fr 3fr;
+    gap: 0;
+  }
+  
+  .links ul {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+  }
+
+  .links nav h3 {font-size: 2.4rem;}
+
+  .links form h3 {font-size: 2.4rem;}
+
+  .bottom {font-size: 1.8rem;}
+  .bottom ul {font-size: 2.4rem;}
+}
