@@ -86,6 +86,8 @@ ____________________________________  */
 .bg-b {background-color: var(--dark);}
 .dis-n {display: none;}
 
+.flex-start {align-items: flex-start;}
+
 .act {color: #d14812;}
 @media screen and (min-width: 810px) {
   .btn {
@@ -103,27 +105,12 @@ ____________________________________  */
   top: 0; 
   z-index: 9999;
   width: 100%;
-  background-color: hsla(0, 0%, 0%, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-/* --- */
-.active-state {
   background-color: var(--l-gray);
   backdrop-filter: unset;
   mix-blend-mode: unset;
   border-bottom: 1px solid var(--m-gray);
 }
 
-.active-state .icons i {
-  color: var(--dark);
-}
-
-.active-state .icons .line {
-  background-color: var(--dark);
-}
-
-.active-state div .cart__items {background-color: var(--dark);}
 
 .scroller {
   position: relative;
@@ -161,7 +148,7 @@ ____________________________________  */
   gap: 40px;
   font-size: 1.2rem;
   text-transform: uppercase;
-  animation: scroll 10s linear infinite;
+  animation: scroll 20s linear infinite;
   will-change: transform;
 }
 
@@ -204,14 +191,14 @@ ____________________________________  */
   cursor: pointer;
 }
 
-.icons div i { font-size: 2rem; color: var(--white);}
+.icons div i { font-size: 2rem; color: var(--dark);}
 
 .icons .cart__items {
   position: absolute;
   bottom: 5px;
   right: 2px;
   font-size: 1.2rem;
-  background-color: var(--orange);
+  background-color: var(--dark);
   color: var(--white);
   display: grid;
   place-items: center;
@@ -236,7 +223,7 @@ ____________________________________  */
 .line {
   height: 2px;
   width: 20px;
-  background-color: var(--white);
+  background-color: var(--dark);
   transition: var(--transition);
 }
 

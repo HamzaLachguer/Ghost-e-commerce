@@ -24,6 +24,33 @@ ____________________________________  */
 }
 
 
+
+/* 
+  -- HEADER
+______________  */
+/* --- */
+.active-state {
+  background-color: hsla(0, 0%, 0%, 0.1);
+  backdrop-filter: blur(10px);
+  border: none;
+}
+
+.active-state .nav__list {color: var(--white);}
+
+.active-state .icons i {
+  color: var(--white);
+}
+
+.active-state .icons .line {
+  background-color: var(--white);
+}
+
+.active-state div .cart__items {background-color: var(--orange);}
+
+
+
+
+
 /* ***
   -- HERO --
 ____________________________________  */
