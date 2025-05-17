@@ -402,15 +402,17 @@ ____________________________________  */
 .reviews__grid {
   position: relative;
   padding-bottom: 32px;
+  overflow-x: hidden;
+  transition: var(--transition);
 }
 
-.reviews__grid >div:nth-of-type(1) {
+.reviews__grid > .rev {
   display: flex;
   flex-wrap: nowrap;
   flex-shrink: 0;
   gap: 12px;
   width: 100%;
-  overflow-x: scroll;
+  transition: transform 0.3s ease;
 }
 
 .reviews {

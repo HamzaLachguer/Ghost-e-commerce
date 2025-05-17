@@ -46,7 +46,7 @@ function toggleMenu () {
   navList.classList.toggle("nav__hidden");
   
   if (isOpen && windowWidth < 810) {
-    header.classList.toggle("active-state");
+    header.classList.remove("active-state");
     logo.src = logoBlack;
   } 
 
@@ -85,5 +85,59 @@ window.addEventListener('scroll', () => {
 
 
 /* ==================== */
-  // PRODUCTS
+  // REVIEW SLIDER
 /* ==================== */
+const slider = document.querySelector(".rev")
+const reviewArray = [...slider.querySelectorAll(".review")];
+const dotsArray = Array.from(document.querySelector(".toggling__dots").children);
+
+const nexBtn = document.querySelector(".right");
+const preBtn = document.querySelector(".left");
+
+let currentSlide = 0;
+// goToSlide
+const updateDots = () => {
+  dotsArray.forEach((dot, index) => {
+    currentSlide === index
+    ? dot.classList.add("selected")
+    : dot.classList.remove("selected")
+  })
+}
+
+const goToSlide = (slideIndex) => {
+  const reviewWidth = reviewArray[0].getBoundingClientRect().width;
+  const gap = parseInt(window.getComputedStyle(slider).gap) || 12;
+  const translateValue = slideIndex * (reviewWidth + gap) ;
+
+  slider.style.transform = `translateX(-${translateValue}px)`;
+  currentSlide = slideIndex;
+  updateDots(slideIndex);
+}
+
+nexBtn.addEventListener('click', () => {
+  currentSlide === reviewArray.length - 1
+    ? goToSlide(0)
+    : goToSlide(currentSlide + 1)
+})
+
+preBtn.addEventListener('click', () => {
+  currentSlide === 0
+    ? goToSlide(reviewArray.length - 1)
+    : goToSlide(currentSlide - 1)
+})
+
+dotsArray.forEach(dot => {
+  dot.addEventListener('click', () => {
+    const slideIndex = parseInt(dot.dataset.dot);
+    goToSlide(slideIndex)
+  })
+})
+
+// Handle window resize
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 810) {
+    slider.style.transform = 'none';
+  } else {
+    goToSlide(currentSlide);
+  }
+});
