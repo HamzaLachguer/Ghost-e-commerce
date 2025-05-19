@@ -1,0 +1,206 @@
+
+/* 
+  -- PRODUCT PAGE --
+____________________  */
+
+const clikedPdt = {
+    id: "0000-qwer-00qw",
+    title: "Air Jordan 1 Retro High OG",
+    category: "Men's Shoes",
+    price: 180,
+    imgs: [
+      "https://framerusercontent.com/images/a5N8K6EPOS3I7ojqRZ06LGiNOE.png?scale-down-to=1024",
+      "https://framerusercontent.com/images/gJZJUX1kGAqqUdILdyjCkl5A.png",
+      "https://framerusercontent.com/images/mxqhcpaJWkIc26m7kzUrg1swl6s.png?scale-down-to=1024",
+      "https://framerusercontent.com/images/Xo71rgfJt85oXUWu0UDNNgL2LI.png?scale-down-to=1024"
+    ],
+    details: "You know the colors. You know the history. MJ's college years catapulted him to early stardom, and this reimagined AJ1 High nods back to his North Carolina roots. Distressed leather, classic color blocking and special packaging add a vintage feel—as if you've been saving this pair since 1985.",
+    size: [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ]
+  }
+
+const {title, category, price, imgs, details, size} = clikedPdt;
+
+/* img slider */
+const imgSlider = document.querySelector(".img__slider");
+const pdtImgGrid = document.querySelector(".pdt__imgs");
+const toggleSlider = document.querySelector(".toggling-dots");
+
+const viewportWidth = window.innerWidth;
+
+let currSlide = 0;
+
+imgs.forEach((img, index) => {
+  const imgContainer = document.createElement("div");
+  imgContainer.setAttribute("class", "img__cont");
+
+  imgContainer.innerHTML = `<img src="${img}" alt="${title} image">`;
+  pdtImgGrid.append(imgContainer)
+
+  // Creating dots
+  const dot = document.createElement("div");
+  dot.setAttribute("class", "dot");
+  dot.dataset.index = index;
+  toggleSlider.append(dot);
+  if (index === 0) dot.classList.add("active");
+
+  dot.addEventListener('click', () => {
+    shift(index);
+  })
+})
+
+// Creating the go to  slide function
+function shift(slideIndex) {
+  
+  if (viewportWidth < 810) {
+    currSlide = slideIndex;
+    dotsUpdate();
+    pdtImgGrid.style.transform = `translateX(calc(-${slideIndex * 100}% - ${6}px))`;
+  } else if (viewportWidth > 810) {
+    pdtImgGrid.style.transform = `translateY(-${slideIndex * 100}%)`;
+    currSlide = slideIndex;
+    dotsUpdate();
+  }
+}
+
+function dotsUpdate() {
+  const dotList = document.querySelectorAll(".dot");
+
+  dotList.forEach((d, i) => {
+    d.classList.remove("active");
+
+    if (currSlide === i) d.classList.add("active");
+  })
+}
+
+/* product info */
+const pdtInfo = document.querySelector(".product__info");
+
+
+function sizeHtml(size) {
+  let html = '';
+  size.forEach(s => {
+    html += `<div class="size">${s}</div>`
+  });
+  return html;
+}
+
+pdtInfo.innerHTML = `
+  <div>
+    <h4>${category}</h4>
+    <h2>${title}</h2>
+    <h3>$${price}</h3>
+  </div>
+
+  <div>
+    <div class="quantity">
+      <button class="plus"><i class="ri-add-line"></i></button>
+      <div>0</div>
+      <button class="minus"><i class="ri-subtract-line"></i></button>
+    </div>
+    <div class="size__grid">
+    </div>
+  </div>
+
+  <div class="cart">
+    <button class="btn btn-active">Add to Cart</button>
+    <button class="btn ">Buy Now</button>
+
+    <div class="payment">
+      <div>
+        <img src="https://logowik.com/content/uploads/images/visa-new-20215093.jpg" alt="">
+      </div>
+      <div>
+        <img src="https://logowik.com/content/uploads/images/google-pay.jpg" alt="">
+      </div>
+      <div>
+        <img src="https://logowik.com/content/uploads/images/paypal-icon-202427932.logowik.com.webp" alt="">
+      </div>
+      <div>
+        <img src="https://www.logo.wine/a/logo/Apple_Pay/Apple_Pay-White-Dark-Background-Logo.wine.svg" alt="">
+      </div>
+      <div>
+        <img src="https://www.logo.wine/a/logo/American_Express/American_Express-Logo.wine.svg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="dropdown__list">
+    <div class="dropdown ">
+      <div>
+        <h3>Details</h3>
+        <span><i class="ri-arrow-down-s-line"></i></span>
+      </div>
+
+      <div class="dropdown__text">
+        <p>${details}</p>
+      </div>
+    </div>
+
+    <div class="dropdown ">
+      <div>
+        <h3>Shipping</h3>
+        <span><i class="ri-arrow-down-s-line"></i></span>
+      </div>
+
+      <div class="dropdown__text">
+        <p>Our products are typically shipped within 5-10 business days, however there may be slight delays when demand is high. We offer free global shipping on orders over $100.</p>
+      </div>
+    </div>
+    
+  </div>
+`;
+
+const sizeGrid =document.querySelector(".size__grid")
+sizeGrid.innerHTML = sizeHtml(size);
+
+// Drop down
+const dropdownArray = Array.from(document.querySelector(".dropdown__list").children)
+
+dropdownArray.forEach(item => {
+  const header = item.querySelector("div:first-child");
+  
+  header.addEventListener('click', () => {
+    dropdownArray.forEach(i => {
+      if (!i === item) i.classList.remove("drop")
+    })
+
+    item.classList.toggle("drop");
+  })
+})
+
+// Select a size
+const sizeClick = [...document.querySelectorAll(".size__grid .size")];
+console.log(sizeClick)
+sizeClick.forEach(x => {
+  x.addEventListener('click', () => {
+    sizeClick.forEach(si => si.classList.remove("select"));
+
+    x.classList.add("select")
+  })
+})
+
+// Quantity increment - decrement
+const plusBtn = document.querySelector(".quantity .plus");
+const minusBtn = document.querySelector(".quantity .minus");
+const quantity =document.querySelector(".quantity div");
+
+plusBtn.addEventListener('click', increment);
+minusBtn.addEventListener('click', decrement);
+
+function increment() {
+
+  quantity.textContent = 1 + Number(quantity.textContent);
+}
+
+function decrement() {
+
+  if (Number(quantity.textContent) >= 1) {
+    quantity.textContent = Number(quantity.textContent) - 1;
+  } else return
+}

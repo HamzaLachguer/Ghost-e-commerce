@@ -44,7 +44,7 @@ ______________  */
   display: flex;
   flex-wrap: nowrap;
   gap: 12px;
-  transition: var(--transition);
+  transition: .7s ease;
 }
 
 .img__cont {
@@ -62,7 +62,7 @@ ______________  */
   }
 }
 
-.toggling__dots {
+.toggling-dots {
   padding: 6px;
   display: flex;
   gap: 6px;
@@ -213,6 +213,9 @@ ______________  */
 
 .dropdown__list {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .dropdown {
@@ -279,6 +282,7 @@ ______________  */
   .pdt__imgs {
     flex-direction: column;
     height: 600px;
+    gap: 0;
   }
 
   .img__cont {
@@ -286,7 +290,7 @@ ______________  */
     height: 600px;
   }
 
-  .toggling__dots {
+  .toggling-dots {
     flex-direction: column;
     left: 20px;
     height: fit-content;
