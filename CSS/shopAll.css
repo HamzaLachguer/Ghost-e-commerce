@@ -1,0 +1,387 @@
+/* ---------------------------------- *\
+        ### CSS STYLING ###
+\* ---------------------------------- */
+
+/* ***
+  -- VARIABLES
+____________________________________  */
+:root {
+  /* - colors - */
+  --dark:     #000;
+  --d-gray:   #474747;
+  --m-gray:   #d1d1d1;
+  --l-gray:   #f9f7f6;
+  --white:    #fff;
+  --orange:   #d14812;
+
+  /* - TYPOGRAPHY & FONT */
+  --font: "Rethink Sans", sans-serif;
+  --medium: 400;
+  --bold: 700; 
+
+  /* - TRANSITION - */ 
+  --transition: .25s ease;
+}
+
+
+
+/* ***
+  -- SHOP ALLL --
+____________________________________  */
+.shop__all {
+  padding: 60px 16px 80px;
+}
+
+.shop__all> div:nth-of-type(1) h2 {
+  font-size: 5rem;
+  letter-spacing: -.1rem;
+  margin-bottom: 32px;
+}
+
+.shop__all> div:nth-of-type(1) p {
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  letter-spacing: -.1rem;
+  color: var(--d-gray);
+  margin-bottom: 40px;
+}
+
+.filtering {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+  padding-top: 40px;
+  border-top: 1px solid var(--m-gray);
+  margin-bottom: 64px;
+}
+
+.filtering div {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.results {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--d-gray);
+}
+
+
+.product__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 0 0 45px;
+}
+
+.product__img {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+
+  & img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.product__card {padding: 0 0 32px;}
+
+.product__card h3 {
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  margin-bottom: 8px;
+  letter-spacing: -.05rem;
+}
+
+.product__card h4 {
+  font-family: "Geist Mono", monospace;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: 400;
+  color: var(--orange);
+  text-transform: uppercase;
+  margin: 12px 0 12px 0;
+}
+
+.product__card h2 {
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+}
+
+
+@media screen and (min-width: 810px) {
+  .shop__all {
+    padding: 180px 54px 120px;
+  }
+
+  .shop__all> div:nth-of-type(1) h2 {
+    font-size: 6.1rem;
+  }
+
+  .shop__all> div:nth-of-type(1) p {
+    font-size: 2.8rem;
+    line-height: 2.8rem;
+  }
+
+  .filtering {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  .results {
+    font-size: 1.4rem;
+  }
+
+  .product__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product__img {height: 340px;}
+
+  .product__card h3 {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+  }
+
+  .product__card h4 {
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  .product__card h2 {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .shop__all {
+    padding: 180px 40px 120px;
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .shop__all> div:nth-of-type(1) h2 {
+    font-size: 7.2rem;
+  }
+
+  .shop__all> div:nth-of-type(1) p {
+    font-size: 3.2rem;
+    line-height: 3.2rem;
+  }
+
+  .filtering {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  .results {
+    font-size: 1.6rem;
+  }
+  
+  .product__img {height: 400px;}
+  
+  .product__card h4 {
+    font-size: 1.6rem;
+  }
+
+  .product__card h3 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  .product__card h2 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+
+
+
+
+
+/* ***
+  -- REVIEW --
+____________________________________  */
+.reviews__grid {
+  position: relative;
+  padding-bottom: 32px;
+  overflow-x: hidden;
+  transition: var(--transition);
+}
+
+.reviews__grid > .rev {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 12px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.reviews {
+  padding: 90px 16px;
+  position: relative;
+}
+
+.reviews h2 {
+  font-size: 5rem;
+  letter-spacing: -.2rem;
+  line-height: 5rem;
+  margin-bottom: 72px;
+}
+
+.review {
+  width: 356px;
+}
+
+.review__img {
+  width: 356px;
+  height: 360px;
+  overflow: hidden;
+
+  & img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.review__text {
+  padding: 16px 6px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review__text span:nth-of-type(1) {
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  color: var(--d-gray);
+}
+
+.review__text span:nth-of-type(2) {
+  font-size: 1.6rem;
+  color: var(--orange);
+}
+
+.review__text div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review__text div span:nth-of-type(2) {
+  display: flex;
+  gap: 2px;
+}
+
+.review__text p {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.8rem;
+  letter-spacing: -.1rem;
+}
+
+.toggling__arrows {
+  position: absolute;
+  top: 45%;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 32px);
+}
+
+.toggling__arrows div {
+  height: 40px;
+  width: 40px;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  background-color: var(--white);
+  border-radius: 20px;
+  border: 1px solid var(--m-gray);
+  cursor: pointer;
+}
+
+.toggling__dots {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 25px);
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+}
+
+.toggling__dots div {
+  background-color: var(--m-gray);
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.toggling__dots div.selected {
+  background-color: var(--dark);
+}
+
+
+@media screen and (min-width: 810px) {
+  .reviews {padding: 90px 54px;}
+  .toggling__arrows,
+  .toggling__dots {display: none;}
+
+  .reviews__grid {
+    width: 100%;
+
+  }
+
+  .reviews__grid >div:nth-of-type(1) {
+    all: unset;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  } 
+
+  .review {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .review__img {
+    height: 280px;
+    width: 100%;
+  }
+  
+  .review__text p {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  
+  .review__text span:nth-of-type(1) {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+  }
+}
+
+
+@media screen and (min-width: 1200px) {
+  .reviews {
+    padding: 90px 40px;
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+

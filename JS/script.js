@@ -65,20 +65,22 @@ navList.id = "nav-list";
 /* 
   REMOVING THE"ACTIVE-STATE" FROM THE HEADER
 */
-const heroHeight = document.querySelector(".hero").offsetHeight;
-
-window.addEventListener('scroll', () => {
-  if (!menuBtn.classList.contains("open")) {
-    let scrollPositionY = window.scrollY || window.pageYOffset;
-    if (scrollPositionY >= heroHeight) {
-      header.classList.remove("active-state");
-      logo.src = logoBlack;
-    } else {
-      header.classList.add("active-state");
-      logo.src = logoWhite;
+if (window.location.href.includes("home.html")) {
+  const heroHeight = document.querySelector(".hero").offsetHeight;
+  
+  window.addEventListener('scroll', () => {
+    if (!menuBtn.classList.contains("open")) {
+      let scrollPositionY = window.scrollY || window.pageYOffset;
+      if (scrollPositionY >= heroHeight) {
+        header.classList.remove("active-state");
+        logo.src = logoBlack;
+      } else {
+        header.classList.add("active-state");
+        logo.src = logoWhite;
+      }
     }
-  }
-})
+  })
+}
 
 
 
