@@ -1,4 +1,4 @@
-
+import { productGrid } from "../products.js";
 
 
 
@@ -143,3 +143,55 @@ window.addEventListener('resize', () => {
     goToSlide(currentSlide);
   }
 });
+
+
+
+/* 
+  -- SHOP ALL --
+__________________________  */
+const pdtGrid = document.querySelector(".shop-all-grid");
+
+pdtGrid.innerHTML = genratePdtGridHtml(productGrid);
+
+function genratePdtGridHtml(list) {
+  return list.map(x => {
+    const {id, title, category, price, imgs} = x;
+    return `
+      <div class="product__card" data-pdt-id=${id}>
+        <div class="product__img">
+          <img src=${imgs[0]}>
+        </div>
+        <h4>${category}</h4>
+        <h3>${title}</h3>
+        <h2>$${price}</h2>
+      </div>
+    `
+  }).join("")
+}
+
+// results
+document.querySelector(".results").textContent = `${productGrid.length} RESULTS`;
+
+// SORTHING PDTS
+const productCards = document.querySelectorAll(".product__card");
+const filteringBtns = [...document.querySelectorAll(".filtering .btn")];
+
+
+    console.log(filteringBtns)
+
+// LOADING PDT PAGE
+productCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const id = card.dataset.pdtId;
+    // find product
+    const product = productGrid.find(p => p.id === id);
+    saveToStorage(product)
+
+    // navigate to product page
+    window.location.href = "/HTML/pdt-page.html";
+  })
+})
+
+function saveToStorage(p) {
+  localStorage.setItem("clickedPdt", JSON.stringify(p))
+}

@@ -3,26 +3,7 @@
   -- PRODUCT PAGE --
 ____________________  */
 
-const clikedPdt = {
-    id: "0000-qwer-00qw",
-    title: "Air Jordan 1 Retro High OG",
-    category: "Men's Shoes",
-    price: 180,
-    imgs: [
-      "https://framerusercontent.com/images/a5N8K6EPOS3I7ojqRZ06LGiNOE.png?scale-down-to=1024",
-      "https://framerusercontent.com/images/gJZJUX1kGAqqUdILdyjCkl5A.png",
-      "https://framerusercontent.com/images/mxqhcpaJWkIc26m7kzUrg1swl6s.png?scale-down-to=1024",
-      "https://framerusercontent.com/images/Xo71rgfJt85oXUWu0UDNNgL2LI.png?scale-down-to=1024"
-    ],
-    details: "You know the colors. You know the history. MJ's college years catapulted him to early stardom, and this reimagined AJ1 High nods back to his North Carolina roots. Distressed leather, classic color blocking and special packaging add a vintage feel—as if you've been saving this pair since 1985.",
-    size: [
-      "7",
-      "8",
-      "9",
-      "10",
-      "11"
-    ]
-  }
+const clikedPdt = JSON.parse(localStorage.getItem('clickedPdt'))
 
 const {title, category, price, imgs, details, size} = clikedPdt;
 
