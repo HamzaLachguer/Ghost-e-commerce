@@ -1,11 +1,11 @@
-
+import {cart} from "./cart.js";
 /* 
   -- PRODUCT PAGE --
 ____________________  */
 
 const clikedPdt = JSON.parse(localStorage.getItem('clickedPdt'))
 
-const {title, category, price, imgs, details, size} = clikedPdt;
+const {id, title, category, price, imgs, details, size} = clikedPdt;
 
 /* img slider */
 const imgSlider = document.querySelector(".img__slider");
@@ -81,7 +81,7 @@ pdtInfo.innerHTML = `
   <div>
     <div class="quantity">
       <button class="plus"><i class="ri-add-line"></i></button>
-      <div>0</div>
+      <div class="selected-quantity">1</div>
       <button class="minus"><i class="ri-subtract-line"></i></button>
     </div>
     <div class="size__grid">
@@ -89,8 +89,8 @@ pdtInfo.innerHTML = `
   </div>
 
   <div class="cart">
-    <button class="btn btn-active">Add to Cart</button>
-    <button class="btn ">Buy Now</button>
+    <button class="btn btn-active add-cart">Add to Cart</button>
+    <button class="btn add-cart">Buy Now</button>
 
     <div class="payment">
       <div>
@@ -157,7 +157,7 @@ dropdownArray.forEach(item => {
 
 // Select a size
 const sizeClick = [...document.querySelectorAll(".size__grid .size")];
-console.log(sizeClick)
+
 sizeClick.forEach(x => {
   x.addEventListener('click', () => {
     sizeClick.forEach(si => si.classList.remove("select"));
@@ -185,3 +185,29 @@ function decrement() {
     quantity.textContent = Number(quantity.textContent) - 1;
   } else return
 }
+
+
+// ADD TO CART
+const addToCartBtn = document.querySelector(".add-cart");
+addToCartBtn.addEventListener('click', () => {
+  const selectedSize = sizeClick.find(s => s.classList.contains("select"));
+  const selectedQuantity = document.querySelector(".selected-quantity").textContent;
+  if (selectedSize) {
+    const isPdtInCart = cart.find(p => p.id === id && p.size === selectedSize.textContent);
+    if (!isPdtInCart) {
+      cart.push({
+        id: id,
+        title: title,
+        price: price,
+        img: imgs[0],
+        size: selectedSize.textContent,
+        quantity: Number(selectedQuantity)
+      })
+    } else isPdtInCart.quantity += Number(selectedQuantity);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log(cart)
+    
+  } else console.log("Please select a size");
+})
+
+

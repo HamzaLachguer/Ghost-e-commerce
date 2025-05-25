@@ -90,7 +90,7 @@ if (window.location.href.includes("home.html")) {
   // REVIEW SLIDER
 /* ==================== */
 const slider = document.querySelector(".rev")
-const reviewArray = [...slider.querySelectorAll(".review")];
+const reviewArray = Array.from(slider.querySelectorAll(".review"));
 const dotsArray = Array.from(document.querySelector(".toggling__dots").children);
 
 const nexBtn = document.querySelector(".right");
@@ -173,13 +173,49 @@ function genratePdtGridHtml(list) {
 document.querySelector(".results").textContent = `${productGrid.length} RESULTS`;
 
 // SORTHING PDTS
-const productCards = document.querySelectorAll(".product__card");
 const filteringBtns = [...document.querySelectorAll(".filtering .btn")];
 
+filteringBtns.map(btn => {
+  return btn.addEventListener('click', () => {
+    filteringBtns.map(b => b.classList.remove("btn-active"));
+    btn.classList.toggle("btn-active")
 
-    console.log(filteringBtns)
+    const btnData = btn.dataset.filter;
+    switch (btnData) {
+      case "highLow" :
+        console.log('High to Low')
+        productGrid.sort((a, b) => b.price - a.price)
+        break;
+
+      case "lowHigh" :
+        productGrid.sort((a, b) => a.price - b.price)
+        break;
+      
+      default:
+        productGrid.sort((a, b) => a.id.localeCompare(b.id));
+    }
+
+    pdtGrid.innerHTML = genratePdtGridHtml(productGrid);
+    const productCards = [...document.querySelectorAll(".product__card")];
+
+    productCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.dataset.pdtId;
+        // find product
+        const product = productGrid.find(p => p.id === id);
+        saveToStorage(product)
+
+        // navigate to product page
+        window.location.href = "/HTML/pdt-page.html";
+      })
+    })
+  })
+})
+
 
 // LOADING PDT PAGE
+const productCards = [...document.querySelectorAll(".product__card")];
+
 productCards.forEach(card => {
   card.addEventListener('click', () => {
     const id = card.dataset.pdtId;
@@ -192,6 +228,13 @@ productCards.forEach(card => {
   })
 })
 
+
 function saveToStorage(p) {
   localStorage.setItem("clickedPdt", JSON.stringify(p))
 }
+
+
+const shoppingBag = document.querySelector(".shopping__bag");
+shoppingBag.addEventListener('click', () => {
+  window.location.href = './cart.html';
+})

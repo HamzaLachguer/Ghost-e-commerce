@@ -1,4 +1,4 @@
-export const productGrid = [
+export let productGrid = [
   {
     id: "0000-qwer-00qw",
     title: "Air Jordan 1 Retro High OG",
