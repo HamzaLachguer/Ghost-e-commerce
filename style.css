@@ -1,0 +1,224 @@
+/*   --
+  *** STYLE CSS ***
+___________________   */
+
+
+/*   --
+  *** VARIABLES ***
+___________________   */
+:root {
+
+  --black:  #333333;
+  --d-gray: #888888;
+  --gray:   #adadad;
+  --green:  #3f939d;
+  --d-green:  #3a6165;
+}
+
+
+/*   --
+  *** RESET ***
+___________________   */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Sora", sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  scroll-behavior: smooth;
+  color: var(--black);
+}
+
+
+li {list-style: none;}
+a {all: unset; cursor: pointer;}
+
+
+/*   --
+  *** REUSABLE CLASSES ***
+___________________   */
+.container {padding: 40px 60px;}
+
+.btn {
+  width: fit-content;
+  padding: 10px 20px;
+  background-color: var(--green);
+  border: none;
+  color: #fff;
+  font-family: "Sora", sans-serif;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.b-left {border-left: 8px solid var(--d-green);}
+
+
+
+@media screen and (min-width: 810px) {
+  .container {padding: 80px 60px;}
+}
+
+
+/*   --
+  *** HEADER ***
+___________________   */
+.header {
+  height: fit-content;
+  background-color: #fff;
+}
+
+.nav__menu {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: height 0.4s ease;
+}
+
+.nav__menu> div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.word__mark {
+  text-transform: uppercase;
+}
+
+.word__mark h3 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: .3rem;
+  line-height: 2.5rem;
+}
+
+.word__mark h4 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.5rem;
+  color: var(--gray);
+}
+
+/* --------- */
+.burger__menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 3.2rem;
+  width: 3.2rem;
+  cursor: pointer;
+}
+
+
+.line {
+  height: 2px;
+  width: 24px;
+  background-color: var(--gray);
+  transition: .4s ease;
+}
+
+/* close menu */
+.close .line {position: absolute;}
+.close .one {transform: rotate(45deg);}
+.close .two {transform: rotate(-45deg);}
+
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px 100px 20px 0;
+}
+
+.nav__list .nav__link {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0 0 0 20px;
+  border-left: 1px solid #dddddd;
+}
+
+.nav__link a {
+  line-height: 2.5rem;
+  transition: .4s ease;
+}
+
+.nav__link a:hover {
+  color: var(--green);
+}
+
+.nav__link h4 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.5rem;
+  color: var(--gray);
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  margin: 0 auto;
+
+  & img {
+    object-position: center;
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.hide {
+  height: 50px !important;
+  overflow: hidden;
+  transition: height .4s ease;
+}
+
+@media screen and (min-width: 820px) {
+  .burger__menu {display: none;}
+
+  .logo {margin: 0;}
+
+  .nav__menu {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    gap: 60px;
+    padding: 0;
+  }
+}
+
+/*   --
+  *** FOOTER ***
+___________________   */
+.footer {
+  display: flex;
+  gap: 20px;
+}
+
+.footer> div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 100px 0 0;
+}
+
+.footer .nav__list {
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 100px 0 0;
+}
